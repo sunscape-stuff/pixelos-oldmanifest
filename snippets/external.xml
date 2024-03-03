@@ -10,7 +10,7 @@
   <remote  name="pixel"
            fetch="https://github.com/PixelExperience"
            revision="fourteen"
-           review="gerrit-staging.pixelexperience.org" />
+           review="gerrit.pixelexperience.org" />
 
   <remote  name="pixel-gitlab"
            fetch="https://gitlab.pixelexperience.org/android"
@@ -23,7 +23,7 @@
   <remote  name="pixel-devices-blobs"
            fetch="https://gitlab.pixelexperience.org/android/vendor-blobs"
            revision="fourteen" />
-
+ 
   <remote  name="sunscape-pixel"
            fetch="https://github.com/sunscape-stuff"
            revision="fourteen" />
@@ -113,8 +113,9 @@
   <!-- Device -->
   <project path="device/qcom/sepolicy" name="device_qcom_sepolicy" remote="pixel" />
   <project path="device/qcom/sepolicy-legacy-um" name="device_qcom_sepolicy-legacy-um" remote="pixel" />
-  <project path="device/qcom/sepolicy_vndr" name="device_qcom_sepolicy_vndr" remote="pixel" />
-  <project path="device/qcom/sepolicy_vndr-legacy-um" name="device_qcom_sepolicy_vndr-legacy-um" remote="pixel" />
+  <project path="device/qcom/sepolicy_vndr/legacy-um" name="device_qcom_sepolicy_vndr_legacy-um" remote="pixel" />
+  <project path="device/qcom/sepolicy_vndr/sm8450" name="device_qcom_sepolicy_vndr_sm8450" remote="pixel" />
+  <project path="device/qcom/sepolicy_vndr/sm8550" name="device_qcom_sepolicy_vndr_sm8550" remote="pixel" />
 
   <!-- External -->
   <project path="external/ant-wireless/ant_client" name="LineageOS/android_external_ant-wireless_ant_client" groups="qcom,sdm660" remote="LineageOS" />
@@ -139,6 +140,7 @@
     <!-- for AOSP sdm845, we override os_pickup.mk -->
     <linkfile src="os_pickup.mk" dest="hardware/qcom/sdm845/Android.mk" />
     <!-- add guards for CAF repositories -->
+    <linkfile src="os_pickup_sepolicy_vndr.mk" dest="device/qcom/sepolicy_vndr/SEPolicy.mk" />
     <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/msm8953/Android.bp" />
     <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/msm8953/Android.mk" />
     <linkfile src="os_pickup.bp" dest="hardware/qcom-caf/msm8996/Android.bp" />
@@ -197,7 +199,6 @@
   <project path="hardware/qcom-caf/sm8250/media" name="hardware_qcom-caf_sm8250_media" remote="pixel" />
   <project path="hardware/qcom-caf/bengal/audio" name="hardware_qcom-caf_bengal_audio" remote="pixel" />
   <project path="hardware/qcom-caf/bengal/display" name="hardware_qcom-caf_bengal_display" remote="pixel" />
-  <project path="hardware/qcom-caf/bengal/gps" name="hardware_qcom-caf_bengal_gps" remote="pixel" />
   <project path="hardware/qcom-caf/bengal/media" name="hardware_qcom-caf_bengal_media" remote="pixel" />
   <project path="hardware/qcom-caf/sm8350/audio" name="hardware_qcom-caf_sm8350_audio" remote="pixel" />
   <project path="hardware/qcom-caf/sm8350/display" name="hardware_qcom-caf_sm8350_display" remote="pixel" />
